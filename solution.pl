@@ -32,8 +32,13 @@ find_path(Map, R, C, Visited, [Dir|RestPath]) :-
     is_valid(Map, NewR, NewC, Visited),
     find_path(Map, NewR, NewC, [(NewR, NewC)|Visited], RestPath).
 
-% For now, just finds start and returns empty path
+% Check that there is exactly one start position
+one_start(Map) :-
+    findall((R, C), (nth0(R, Map, Row), nth0(C, Row, s)), Starts),
+    length(Starts, 1).
+
+% Entry point: find path from start to exit
 find_exit(Map, Path) :-
+    one_start(Map),
     find_start(Map, R, C),
-    write('Start found at row '), write(R), write(', col '), write(C), nl,
-    Path = [].
+    find_path(Map, R, C, [(R, C)], Path).
