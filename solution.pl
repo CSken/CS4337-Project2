@@ -22,6 +22,16 @@ is_valid(Map, R, C, Visited) :-
     Cell \= w,
     \+ member((R, C), Visited).
 
+% Base case: current cell is the exit, return nothing
+find_path(Map, R, C, _, []) :-
+    get_cell(Map, R, C, e).
+
+% Recursive case: returns the attempted direction appended with the rest of the path
+find_path(Map, R, C, Visited, [Dir|RestPath]) :-
+    move(Dir, R, C, NewR, NewC),
+    is_valid(Map, NewR, NewC, Visited),
+    find_path(Map, NewR, NewC, [(NewR, NewC)|Visited], RestPath).
+
 % For now, just finds start and returns empty path
 find_exit(Map, Path) :-
     find_start(Map, R, C),

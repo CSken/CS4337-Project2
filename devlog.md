@@ -134,3 +134,23 @@ false.
 false.
 ```
 
+# 12/10/2025 7:05 PM
+Successfully implemented find_path predicate
+Reccursively applies DFS to find exit letter based on given starting row and column. Prolog convenenitly tests all direction of moves before backtracking in the case of failure, with a natural application of DFS.
+
+```txt
+5 ?- basic_map(M), display_map(M).
+    ▐▁▁▁▍
+    ▐█s█▍
+    ▐  █▍
+    ▐e██▍
+    ▐▔▔▔▍
+M = [[w, s, w], [f, f, w], [e, w, w]] .
+
+5 ?- basic_map(M), find_path(M, 0, 1, [], P).
+M = [[w, s, w], [f, f, w], [e, w, w]],
+P = [down, left, down] .
+```
+
+## Next Step
+Integrate into find_exit predicate
