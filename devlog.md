@@ -92,3 +92,21 @@ Implement get_cell similar to get whatever value is at the position.
 # 12/10/2025 6:05 
 Successfully implemented and test get_cell using REPL
 Will continue by implementing move to return values up, down, left, and right
+
+# 12/10/2025 6:14
+Successfully implemented mvoe predicate and tested using REPL
+```txt
+2 ?- move(up, 0, 1, NewR, C).
+NewR = -1,
+C = 1.
+
+3 ?- move(down, 0, 1, NewR, C).
+NewR = C, C = 1.
+
+4 ?- move(left, 0, 1, R, NewC).
+R = NewC, NewC = 0.
+
+5 ?- move(right, 0, 1, R, NewC).
+R = 0,
+NewC = 2
+```

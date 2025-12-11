@@ -9,6 +9,12 @@ get_cell(Map, R, C, Value) :-
     nth0(R, Map, Row),
     nth0(C, Row, Value).
 
+% Define movement directions
+move(up, R, C, NewR, C) :- NewR is R - 1.
+move(down, R, C, NewR, C) :- NewR is R + 1.
+move(left, R, C, R, NewC) :- NewC is C - 1.
+move(right, R, C, R, NewC) :- NewC is C + 1.
+
 % For now, just finds start and returns empty path
 find_exit(Map, Path) :-
     find_start(Map, R, C),
