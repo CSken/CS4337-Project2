@@ -87,3 +87,8 @@ Update find_exit to use find_path.
 
 ## Next step
 Implement get_cell similar to get whatever value is at the position.
+
+
+# 12/10/2025 6:05 
+Successfully implemented and test get_cell using REPL
+Will continue by implementing move to return values up, down, left, and right
