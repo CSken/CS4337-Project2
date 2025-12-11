@@ -158,7 +158,7 @@ Integrate into find_exit predicate
 # 12/10/2025 7:30 PM
 Successfully integrated find_path into find_exit
 However, found an error when using bad_map4
-I needed to check the map for if there is more than on start
+I needed to check the map for if there is more than one start.
 Created one_start predicate to determine
 - returns true if there is only one start; false otherwise
 
