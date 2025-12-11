@@ -114,7 +114,7 @@ NewC = 2
 # 12/10/2025 6:30 PM
 Successfully implemented is_valid
 Ensures that a particular cell is valid based on whether it is out of bounds, already visited, or a wall.
-Note that it uses get_cell which returns false if out of row and column are out of boudns
+Note that it uses get_cell which returns false if  row and column are out of bounds
 ```text
 1 ?- basic_map(M), display_map(M).
     ▐▁▁▁▍
