@@ -161,3 +161,64 @@ However, found an error when using bad_map4
 I needed to check the map for if there is more than on start
 Created one_start predicate to determine
 - returns true if there is only one start; false otherwise
+
+```txt
+2 ?- simple_map(M), display_map(M), find_exit(M, P).
+    ▐▁▁▁▍
+    ▐s e▍
+    ▐▔▔▔▍
+M = [[s, f, e]],
+P = [right, right] .
+
+3 ?- basic_map(M), display_map(M), find_exit(M, P).
+    ▐▁▁▁▍
+    ▐█s█▍
+    ▐  █▍
+    ▐e██▍
+    ▐▔▔▔▍
+M = [[w, s, w], [f, f, w], [e, w, w]],
+P = [down, left, down] .
+
+4 ?- basic_map2(M), display_map(M), find_exit(M, P).
+    ▐▁▁▁▍
+    ▐█s█▍
+    ▐  █▍
+    ▐ ██▍
+    ▐  e▍
+    ▐▔▔▔▍
+M = [[w, s, w], [f, f, w], [f, w, w], [f, f, e]],
+P = [down, left, down, down, right, right] .
+
+5 ?- basic_map3(M), display_map(M), find_exit(M, P).
+Correct to: "basic_map(M)"? yes
+    ▐▁▁▁▍
+    ▐█s█▍
+    ▐  █▍
+    ▐e██▍
+    ▐▔▔▔▍
+M = [[w, s, w], [f, f, w], [e, w, w]],
+P = [down, left, down] .
+
+6 ?- bad_map(M), display_map(M), find_exit(M, P).
+    ▐▁▍
+    ▐s▍
+    ▐█e▍
+    ▐▔▍
+false.
+
+7 ?- bad_map2(M), display_map(M), find_exit(M, P).
+    ▐▁▁▁▍
+    ▐s █▍
+    ▐▔▔▔▍
+false.
+
+8 ?- bad_map3(M), display_map(M), find_exit(M, P).
+    ▐▁▁▁▍
+    ▐sse▍
+    ▐▔▔▔▍
+M = [[s, s, e]],
+P = [right, right] .
+```
+
+## Next step:
+contine testing for edge cases
