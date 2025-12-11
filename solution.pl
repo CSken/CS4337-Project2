@@ -15,6 +15,13 @@ move(down, R, C, NewR, C) :- NewR is R + 1.
 move(left, R, C, R, NewC) :- NewC is C - 1.
 move(right, R, C, R, NewC) :- NewC is C + 1.
 
+% Check if a cell is valid to move to
+% Must be in bounds, not a wall, and not already visited
+is_valid(Map, R, C, Visited) :-
+    get_cell(Map, R, C, Cell),
+    Cell \= w,
+    \+ member((R, C), Visited).
+
 % For now, just finds start and returns empty path
 find_exit(Map, Path) :-
     find_start(Map, R, C),

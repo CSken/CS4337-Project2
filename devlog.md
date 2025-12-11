@@ -110,3 +110,27 @@ R = NewC, NewC = 0.
 R = 0,
 NewC = 2
 ```
+
+# 12/10/2025 6:30 PM
+Successfully implemented is_valid
+Ensures that a particular cell is valid based on whether it is out of bounds, already visited, or a wall.
+Note that it uses get_cell which returns false if out of row and column are out of boudns
+```text
+1 ?- basic_map(M), display_map(M).
+    ▐▁▁▁▍
+    ▐█s█▍
+    ▐  █▍
+    ▐e██▍
+    ▐▔▔▔▍
+M = [[w, s, w], [f, f, w], [e, w, w]] .
+
+2 ?- basic_map(M), is_valid(M, 0, 1, []).
+M = [[w, s, w], [f, f, w], [e, w, w]].
+
+3 ?- basic_map(M), is_valid(M, 0, 0, []).
+false.
+
+4 ?- basic_map(M), is_valid(M, 0, -1, []).
+false.
+```
+
